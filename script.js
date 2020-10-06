@@ -20,7 +20,7 @@ window.addEventListener('load', function () {
 		// get the `id` in `dataTransfer` that we saved before
 		const id = event.dataTransfer.getData('text')
 		const draggableEle = document.getElementById(id)
-		const dropzone = event.target;
+		// const dropzone = event.target;
 		dropzone.appendChild(draggableEle);
 
 		// clean up by clear the `dataTransfer`
@@ -28,10 +28,10 @@ window.addEventListener('load', function () {
 	}
 
 
-	const dragEle = document.querySelector('#draggable-1')
+	const dragElems = document.querySelectorAll('.example-draggable')
 	const dropzone = document.querySelector('.example-dropzone')
 
-	dragEle.addEventListener('dragstart', onDragStart)
+	dragElems.forEach(el => el.addEventListener('dragstart', onDragStart))
 	dropzone.addEventListener('dragover', onDragOver)
 	dropzone.addEventListener('drop', onDrop)
 })

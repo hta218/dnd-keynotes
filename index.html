@@ -9,15 +9,41 @@
 </head>
 
 <body>
+	<h1>Example 1 - Simple drag n drop events</h1>
 	<div class="example-parent">
 		<div class="example-origin">
 			<div id="draggable-1" class="example-draggable" draggable="true">
-				draggable
+				draggable 1
+			</div>
+			<div id="draggable-2" class="example-draggable" draggable="true">
+				draggable 2
+			</div>
+		</div>
+		<div class="example-dropzone">
+			dropzone
+		</div>
+	</div>
+	<br><br>
+	<h1>Example 2 - Advanced case with multiple draggable elements</h1>
+	<div class="example-parent">
+		<div class="example-origin">
+			To-do
+			<div id="draggable-1" class="example-draggable" draggable="true" ondragstart="onDragStart(event);">
+				thing 1
+			</div>
+			<div id="draggable-2" class="example-draggable" draggable="true" ondragstart="onDragStart(event);">
+				thing 2
+			</div>
+			<div id="draggable-3" class="example-draggable" draggable="true" ondragstart="onDragStart(event);">
+				thing 3
+			</div>
+			<div id="draggable-4" class="example-draggable" draggable="true" ondragstart="onDragStart(event);">
+				thing 4
 			</div>
 		</div>
 
-		<div class="example-dropzone">
-			dropzone
+		<div class="example-dropzone" ondragover="onDragOver(event);" ondrop="onDrop(event);">
+			Done
 		</div>
 	</div>
 	<script src="script.js"></script>
