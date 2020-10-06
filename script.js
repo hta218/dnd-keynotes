@@ -28,7 +28,7 @@ window.addEventListener('load', function () {
 	}
 
 
-	const dragElems = document.querySelectorAll('.example-draggable')
+	const dragElems = document.querySelectorAll('.ex1 .example-draggable')
 	const dropzone = document.querySelector('.example-dropzone')
 
 	dragElems.forEach(el => el.addEventListener('dragstart', onDragStart))

@@ -20,9 +20,25 @@
   padding: 10px;
 }
 
+.placeholder {
+	background-color: #4AAE9B;
+	width: 100%;
+	height: 39px;
+}
+
+.example-draggable:hover {
+	cursor: pointer;
+}
+
+.example-draggable.dragging {
+	background-color: burlywood;
+	cursor: grabbing;
+}
+
 .example-dropzone {
   background-color: #6DB65B;
   flex-basis: 100%;
   flex-grow: 1;
   padding: 10px;
 }
+

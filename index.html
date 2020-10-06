@@ -6,12 +6,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Learn Drag n Drop events</title>
 	<link rel="stylesheet" href="style.css" />
+	<style>
+		* {
+			box-sizing: border-box;
+			font-family: "Trebuchet MS", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+			color: #222;
+		}
+	</style>
 </head>
 
 <body>
 	<h1>Example 1 - Simple drag n drop events</h1>
 	<div class="example-parent">
-		<div class="example-origin">
+		<div class="example-origin ex1">
 			<div id="draggable-1" class="example-draggable" draggable="true">
 				draggable 1
 			</div>
@@ -26,27 +33,24 @@
 	<br><br>
 	<h1>Example 2 - Advanced case with multiple draggable elements</h1>
 	<div class="example-parent">
-		<div class="example-origin">
+		<div class="example-origin ex2">
 			To-do
-			<div id="draggable-1" class="example-draggable" draggable="true" ondragstart="onDragStart(event);">
+			<div id="drag-item-1" class="example-draggable" draggable="true">
 				thing 1
 			</div>
-			<div id="draggable-2" class="example-draggable" draggable="true" ondragstart="onDragStart(event);">
+			<div id="drag-item-2" class="example-draggable" draggable="true">
 				thing 2
 			</div>
-			<div id="draggable-3" class="example-draggable" draggable="true" ondragstart="onDragStart(event);">
+			<div id="drag-item-3" class="example-draggable" draggable="true">
 				thing 3
 			</div>
-			<div id="draggable-4" class="example-draggable" draggable="true" ondragstart="onDragStart(event);">
+			<div id="drag-item-4" class="example-draggable" draggable="true">
 				thing 4
 			</div>
 		</div>
-
-		<div class="example-dropzone" ondragover="onDragOver(event);" ondrop="onDrop(event);">
-			Done
-		</div>
 	</div>
-	<script src="script.js"></script>
+	<script src="./script.js"></script>
+	<script src="./dnd.js"></script>
 </body>
 
 </html>
