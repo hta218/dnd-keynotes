@@ -6,6 +6,10 @@
   font-weight: bold;
 }
 
+.example-parent.ex3 {
+	padding: 0 30%;
+}
+
 .example-origin {
   flex-basis: 100%;
   flex-grow: 1;
@@ -17,7 +21,10 @@
   font-weight: normal;
   margin-bottom: 10px;
   margin-top: 10px;
-  padding: 10px;
+	padding: 20px;
+	will-change: transform opacity;
+	opacity: 1;
+	transition: transform ease-in-out .2s, opacity ease-in-out .2s;
 }
 
 .placeholder {
@@ -34,11 +41,16 @@
 	background-color: burlywood;
 	cursor: grabbing;
 }
+.example-draggable.dragstart {
+	opacity: 0.6;
+}
+.example-draggable.dragover {
+	transform: scale(1.2);
+}
 
 .example-dropzone {
   background-color: #6DB65B;
   flex-basis: 100%;
   flex-grow: 1;
-  padding: 10px;
+  padding: 20px;
 }
-

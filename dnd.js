@@ -1,50 +1,56 @@
 console.log('dnd script loaded!!')
 
 window.addEventListener('load', function () {
-	const dragTracker = {
-		id: null,
-		target: null
-	}
-	const placeholder = document.createElement('div')
-	placeholder.classList.add('placeholder')
+	const dragItems = document.querySelectorAll('.ex3 .example-draggable')
+	dragItems.forEach(addDndEvents)
 
-	window.dragTracker = dragTracker
-	const dndBoard = document.querySelector('.ex2')
-	const dragItems = document.querySelectorAll('.ex2 .example-draggable')
-
-	dragItems.forEach(item => {
+	function addDndEvents(item) {
 		item.addEventListener('dragstart', function (e) {
-			console.log('drag start!', e.target.id)
+			console.log('Dnd - Drag start')
 			const target = e.target
-			dragTracker.id = target.id
-			dragTracker.target = target
-			target.classList.add('dragging')
-			target.replaceWith(placeholder)
+			e.dataTransfer.effectAllowed = 'move';
+			e.dataTransfer.setData('text/plain', e.target.id)
+			target.classList.add('dragstart')
 		})
-	})
 
-	dragItems.forEach(item =>
-		item.addEventListener('dragoverr', function (e) {
-			if (dragTracker.id !== e.target.id) {
-				console.log('drag over!', e.target.id)
-				const { id, target } = dragTracker
-				const curr = e.target
-				const currId = curr.id
-
-				const currIdx = [...dragItems].indexOf(curr)
-				console.log(currIdx)
-				if (currId !== id) {
-					target.replaceWith(placeholder)
-
-					if ([...dragItems].indexOf(curr) === dragItems.length - 1) {
-						dndBoard.appendChild(target)
-					} else {
-						const next = dragItems[currIdx + 1]
-						dndBoard.insertBefore(target, next)
-					}
-					target.classList.remove('dragging')
-				}
+		item.addEventListener('dragenter', function (e) {
+			e.preventDefault()
+			console.log('Dnd - Drag enter')
+			const target = e.target
+			const dragElemId = e.dataTransfer.getData('text/plain')
+			if (target.id !== dragElemId) {
+				target.classList.add('dragover')
 			}
 		})
-	)
+
+		item.addEventListener('dragleave', function (e) {
+			e.preventDefault()
+			console.log('Dnd - Drag leave')
+			e.target.classList.remove('dragover')
+		})
+
+		item.addEventListener('dragover', function (e) {
+			e.preventDefault()
+			e.dropEffect = "move"
+			console.log('Dnd - dragover')
+		})
+
+		item.addEventListener('drop', function (e) {
+			e.preventDefault()
+			const dragElemId = e.dataTransfer.getData('text/plain')
+			if (dragElemId !== e.target.id) {
+				const dragElem = document.getElementById(dragElemId)
+
+				e.target.classList.remove('dragover')
+				const clone = e.target.cloneNode(true)
+				addDndEvents(clone)
+
+				dragElem.replaceWith(clone)
+				dragElem.classList.remove('dragstart')
+				e.target.replaceWith(dragElem)
+			}
+			e.target.classList.remove('dragstart')
+			e.target.classList.remove('dragover')
+		})
+	}
 })
