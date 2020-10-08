@@ -1,3 +1,5 @@
+console.log('Keynotes script loaded!')
+
 window.addEventListener('load', function () {
 	function handleDragStart(e) {
 		// The `dragstart` event fire on the `draggable` element
@@ -36,7 +38,7 @@ window.addEventListener('load', function () {
 		const data = e.dataTransfer.getData('text/plain')
 		const dragEl = document.getElementById(data)
 		dragEl.classList.remove('dragging')
-		e.target.appendChild(dragEl)
+		this.appendChild(dragEl)
 	}
 
 	const dragElems = document.querySelectorAll('.ex1 .example-draggable')

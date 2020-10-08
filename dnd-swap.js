@@ -1,4 +1,4 @@
-console.log('dnd ex3 script loaded!!')
+console.log('DnD ex2 script loaded!!')
 
 window.addEventListener('load', function () {
 	const dragItems = document.querySelectorAll('.ex3 .example-draggable')
