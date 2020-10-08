@@ -40,6 +40,10 @@
 	cursor: pointer;
 }
 
+.example-draggable.hide {
+	display: none;
+}
+
 .example-draggable.dragging {
 	cursor: grabbing;
 }
@@ -79,4 +83,17 @@
 
 .footer a:hover {
 	text-decoration: underline;
+}
+
+.wrapper {
+	width: 300px;
+	height: 59px;
+	margin: 10px 0;
+	will-change: transform;
+	transition: transform ease-in-out .2s;
+	background-color: #4AAE9B;
+}
+
+.wrapper.over {
+	transform: scale(1.1);
 }
