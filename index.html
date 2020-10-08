@@ -16,9 +16,9 @@
 </head>
 
 <body>
-	<h1>Example 1 - Simple drag n drop events</h1>
-	<div class="example-parent">
-		<div class="example-origin ex1">
+	<h2>Example 1 - Simple drag n drop events</h2>
+	<div class="example-parent ex1">
+		<div class="example-origin">
 			<div id="draggable-1" class="example-draggable" draggable="true">
 				draggable 1
 			</div>
@@ -32,17 +32,17 @@
 	</div>
 	<br><br>
 
-	<h1>Example 2 - MDN Docs</h1>
+	<h2>Example 2 - MDN Docs</h2>
 	<p id="p1" draggable="true" class="example-draggable">This element is draggable.</p>
 	<p id="target" class="example-dropzone">Drop Zone</p>
 	<br><br>
 
-	<h1>Example 3 - Advanced case 1: swap draggable elements</h1>
-	<div class="example-parent ex3">
+	<h2>Example 3 - Advanced case 1: swap 2 draggable elements</h2>
+	<div class="example-parent ex3 advanced">
 		<div class="example-origin">
 			To-do
 			<div id="drag-item-1" class="example-draggable" draggable="true">
-				Doing homework
+				Do homework
 			</div>
 			<div id="drag-item-2" class="example-draggable" draggable="true">
 				Grab some food at the supermarket
@@ -55,9 +55,30 @@
 			</div>
 		</div>
 	</div>
-	<!-- <script src="./script.js"></script> -->
+
+	<br><br>
+	<h2>Example 4 - Advanced case 2: move element</h2>
+	<div class="example-parent ex4 advanced">
+		<div class="example-origin">
+			To-do
+			<div id="drag-item-1" class="example-draggable" draggable="true">
+				Do homework
+			</div>
+			<div id="drag-item-2" class="example-draggable" draggable="true">
+				Grab some food at the supermarket
+			</div>
+			<div id="drag-item-3" class="example-draggable" draggable="true">
+				Clean up the working desk
+			</div>
+			<div id="drag-item-4" class="example-draggable" draggable="true">
+				Feed the dogs
+			</div>
+		</div>
+	</div>
+	<script src="./script.js"></script>
+	<script src="./mdn-docs.js"></script>
 	<script src="./dnd.js"></script>
-	<!-- <script src="./mdn-docs.js"></script> -->
+	<script src="./dnd-ex4.js"></script>
 </body>
 
 </html>

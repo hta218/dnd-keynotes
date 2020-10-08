@@ -1,4 +1,4 @@
-console.log('dnd script loaded!!')
+console.log('dnd ex3 script loaded!!')
 
 window.addEventListener('load', function () {
 	const dragItems = document.querySelectorAll('.ex3 .example-draggable')
@@ -36,6 +36,7 @@ window.addEventListener('load', function () {
 		})
 
 		item.addEventListener('drop', function (e) {
+			console.log('Dnd - drop')
 			e.preventDefault()
 			const dragElemId = e.dataTransfer.getData('text/plain')
 			if (dragElemId !== e.target.id) {

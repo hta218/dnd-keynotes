@@ -6,14 +6,17 @@
   font-weight: bold;
 }
 
-.example-parent.ex3 {
-	padding: 0 30%;
+.example-parent.ex1 > div {
+	width: 50%;
+}
+
+.example-parent.advanced .example-draggable {
+	width: 300px;
 }
 
 .example-origin {
-  flex-basis: 100%;
-  flex-grow: 1;
-  padding: 10px;
+	padding: 10px;
+	margin: 0 auto;
 }
 
 .example-draggable {
@@ -50,7 +53,5 @@
 
 .example-dropzone {
   background-color: #6DB65B;
-  flex-basis: 100%;
-  flex-grow: 1;
   padding: 20px;
 }
