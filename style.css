@@ -25,7 +25,7 @@
   margin-bottom: 10px;
   margin-top: 10px;
 	padding: 20px;
-	will-change: transform opacity;
+	will-change: transform, opacity;
 	opacity: 1;
 	transition: transform ease-in-out .2s, opacity ease-in-out .2s;
 }
@@ -36,15 +36,15 @@
 	height: 39px;
 }
 
-.example-draggable:hover {
+.example-draggable {
 	cursor: pointer;
 }
 
 .example-draggable.dragging {
-	background-color: burlywood;
 	cursor: grabbing;
 }
 .example-draggable.dragstart {
+	cursor: grabbing;
 	opacity: 0.6;
 }
 .example-draggable.dragover {
@@ -54,4 +54,29 @@
 .example-dropzone {
   background-color: #6DB65B;
   padding: 20px;
+}
+
+.gray {
+	background-color: #CBD5E0;
+}
+.orange {
+	background-color: #F6AD55;
+}
+.yellow {
+	background-color: #F6E05E;
+}
+.green {
+	background-color: #68D391;
+}
+
+.footer {
+	text-align: center;
+}
+
+.footer a {
+	text-decoration: none;
+}
+
+.footer a:hover {
+	text-decoration: underline;
 }

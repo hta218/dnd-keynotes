@@ -1,10 +1,12 @@
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
 	function handleDragStart(e) {
 		// The `dragstart` event fire on the `draggable` element
 		console.log('Drag start!')
 		// We can set data using `e.dataTransfer.setData` method
 		e.dataTransfer.setData('text/plain', e.target.id)
-		// e.dataTransfer.dropEffect = "move"
+		e.dataTransfer.effectAllowed = "move"
+		e.dataTransfer.dropEffect = "move"
+		e.target.classList.add('dragging')
 	}
 
 	function handleDragEnd(e) {
@@ -12,6 +14,7 @@ window.addEventListener('load', function() {
 		// We can check wether the drag operation succeeded or not by check the `e.dataTransfer.dropEffect`
 		// If it's not succeeded the value of `e.dataTransfer.dropEffect` will be "none"
 		const dropEffect = e.dataTransfer.dropEffect
+		e.target.classList.remove('dragging')
 		console.log('Drag end!', dropEffect)
 	}
 
@@ -31,14 +34,18 @@ window.addEventListener('load', function() {
 		console.log('Drop!')
 		e.preventDefault()
 		const data = e.dataTransfer.getData('text/plain')
-		e.target.appendChild(document.getElementById(data))
+		const dragEl = document.getElementById(data)
+		dragEl.classList.remove('dragging')
+		e.target.appendChild(dragEl)
 	}
 
-	const dragEl = document.querySelector('#p1')
-	const dropzone = document.querySelector('#target.example-dropzone')
+	const dragElems = document.querySelectorAll('.ex1 .example-draggable')
+	const dropzone = document.querySelector('.ex1 .example-dropzone')
 
-	dragEl.addEventListener('dragstart', handleDragStart)
-	dragEl.addEventListener('dragend', handleDragEnd)
+	dragElems.forEach(dragEl => {
+		dragEl.addEventListener('dragstart', handleDragStart)
+		dragEl.addEventListener('dragend', handleDragEnd)
+	})
 
 	dropzone.addEventListener('dragover', handleDragOver)
 	dropzone.addEventListener('drop', handleDrop)

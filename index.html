@@ -12,6 +12,11 @@
 			font-family: "Trebuchet MS", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 			color: #222;
 		}
+
+		body {
+			max-width: 768px;
+			margin: 0 auto;
+		}
 	</style>
 </head>
 
@@ -20,10 +25,10 @@
 	<div class="example-parent ex1">
 		<div class="example-origin">
 			<div id="draggable-1" class="example-draggable" draggable="true">
-				draggable 1
+				Draggable 1
 			</div>
 			<div id="draggable-2" class="example-draggable" draggable="true">
-				draggable 2
+				Draggable 2
 			</div>
 		</div>
 		<div class="example-dropzone">
@@ -32,53 +37,55 @@
 	</div>
 	<br><br>
 
-	<h2>Example 2 - MDN Docs</h2>
-	<p id="p1" draggable="true" class="example-draggable">This element is draggable.</p>
-	<p id="target" class="example-dropzone">Drop Zone</p>
-	<br><br>
-
-	<h2>Example 3 - Advanced case 1: swap 2 draggable elements</h2>
+	<h2>Example 2 - Swap 2 draggable elements</h2>
 	<div class="example-parent ex3 advanced">
 		<div class="example-origin">
 			To-do
-			<div id="drag-item-1" class="example-draggable" draggable="true">
+			<div id="drag-item-1" class="example-draggable gray" draggable="true">
 				Do homework
 			</div>
-			<div id="drag-item-2" class="example-draggable" draggable="true">
+			<div id="drag-item-2" class="example-draggable orange" draggable="true">
 				Grab some food at the supermarket
 			</div>
-			<div id="drag-item-3" class="example-draggable" draggable="true">
+			<div id="drag-item-3" class="example-draggable yellow" draggable="true">
 				Clean up the working desk
 			</div>
-			<div id="drag-item-4" class="example-draggable" draggable="true">
+			<div id="drag-item-4" class="example-draggable green" draggable="true">
 				Feed the dogs
 			</div>
 		</div>
 	</div>
 
 	<br><br>
-	<h2>Example 4 - Advanced case 2: move element</h2>
+	<h2>Example 3 - Move element</h2>
 	<div class="example-parent ex4 advanced">
 		<div class="example-origin">
 			To-do
-			<div id="drag-item-1" class="example-draggable" draggable="true">
-				Do homework
+			<div class="wrapper">
+				<div id="drag-item-1" draggable="true" class="example-draggable gray">Do homework</div>
 			</div>
-			<div id="drag-item-2" class="example-draggable" draggable="true">
-				Grab some food at the supermarket
+			<div class="wrapper">
+				<div id="drag-item-2" draggable="true" class="example-draggable orange">Grab some food at the supermarket</div>
 			</div>
-			<div id="drag-item-3" class="example-draggable" draggable="true">
-				Clean up the working desk
+			<div class="wrapper">
+				<div id="drag-item-3" draggable="true" class="example-draggable yellow">Clean up the working desk</div>
 			</div>
-			<div id="drag-item-4" class="example-draggable" draggable="true">
-				Feed the dogs
+			<div class="wrapper">
+				<div id="drag-item-4" draggable="true" class="example-draggable green">Feed the dogs</div>
 			</div>
 		</div>
 	</div>
-	<script src="./script.js"></script>
+	<br><br><br>
+	<p class="footer">
+		Copyright 2020 - Made by Leo Huynh at:
+		<a href="https://leohuynh.dev" target="_blank">https://leohuynh.dev</a>,
+		<a href="https://twitter.com/hta218_" target="_blank">@twitter/hta218_</a>,
+		<a href="https://github.com/hta218" target="_blank">@github/hta218</a>
+	</p>
+	<br>
 	<script src="./mdn-docs.js"></script>
-	<script src="./dnd.js"></script>
-	<script src="./dnd-ex4.js"></script>
+	<script src="./dnd-swap.js"></script>
+	<script src="./dnd-move.js"></script>
 </body>
 
 </html>
