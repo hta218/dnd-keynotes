@@ -23,9 +23,8 @@ window.addEventListener('load', function () {
 			console.log('Dnd - Drag start')
 			dragEnd = false
 			const target = e.target
-			// e.dataTransfer.effectAllowed = 'move';
+			e.dataTransfer.effectAllowed = 'move';
 			e.dataTransfer.setData('text/plain', e.target.id)
-			// e.dataTransfer.setDragImage(e.target, 0, 0)
 			target.classList.add('dragstart')
 		})
 
@@ -48,7 +47,7 @@ window.addEventListener('load', function () {
 		item.addEventListener('dragover', function (e) {
 			console.log('Dnd - dragover')
 			e.preventDefault()
-			// e.dropEffect = "move"
+			e.dropEffect = "move"
 		})
 
 		item.addEventListener('drop', function (e) {
