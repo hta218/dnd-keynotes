@@ -1,4 +1,4 @@
-## Learn Javascript Drag and Drop events
+## Javascript Drag and Drop events keynotes
 
 Events include:
 
