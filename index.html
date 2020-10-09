@@ -13,7 +13,7 @@
 			color: #222;
 		}
 
-		body {
+		#app {
 			max-width: 768px;
 			margin: 0 auto;
 		}
@@ -21,68 +21,73 @@
 </head>
 
 <body>
-	<h2>Example 1 - Simple drag n drop events</h2>
-	<div class="example-parent ex1">
-		<div class="example-origin">
-			<div id="draggable-1" class="example-draggable" draggable="true">
-				Draggable 1
-			</div>
-			<div id="draggable-2" class="example-draggable" draggable="true">
-				Draggable 2
-			</div>
-		</div>
-		<div class="example-dropzone">
-			dropzone
-		</div>
-	</div>
-	<br><br>
+	<div id="app">
 
-	<h2>Example 2 - Swap 2 draggable elements</h2>
-	<div class="example-parent ex3 advanced">
-		<div class="example-origin">
-			To-do
-			<div id="drag-item-1" class="example-draggable gray" draggable="true">
-				Do homework
-			</div>
-			<div id="drag-item-2" class="example-draggable orange" draggable="true">
-				Grab some food at the supermarket
-			</div>
-			<div id="drag-item-3" class="example-draggable yellow" draggable="true">
-				Clean up the working desk
-			</div>
-			<div id="drag-item-4" class="example-draggable green" draggable="true">
-				Feed the dogs
-			</div>
-		</div>
-	</div>
 
-	<br><br>
-	<h2>Example 3 - Move element</h2>
-	<div class="example-parent ex4 advanced">
-		<div class="example-origin">
-			To-do
-			<div class="wrapper" data-index="1">
-				<div id="drag-item-1" draggable="true" class="example-draggable gray">Do homework</div>
+		<h2>Example 1 - Simple drag n drop events</h2>
+		<div class="example-parent ex1">
+			<div class="example-origin">
+				<div id="draggable-1" class="example-draggable" draggable="true">
+					Draggable 1
+				</div>
+				<div id="draggable-2" class="example-draggable" draggable="true">
+					Draggable 2
+				</div>
 			</div>
-			<div class="wrapper" data-index="2">
-				<div id="drag-item-2" draggable="true" class="example-draggable orange">Grab some food at the supermarket</div>
-			</div>
-			<div class="wrapper" data-index="3">
-				<div id="drag-item-3" draggable="true" class="example-draggable yellow">Clean up the working desk</div>
-			</div>
-			<div class="wrapper" data-index="4">
-				<div id="drag-item-4" draggable="true" class="example-draggable green">Feed the dogs</div>
+			<div class="example-dropzone">
+				dropzone
 			</div>
 		</div>
+		<br><br>
+
+		<h2>Example 2 - Swap 2 draggable elements</h2>
+		<div class="example-parent ex3 advanced">
+			<div class="example-origin">
+				To-do
+				<div id="drag-item-1" class="example-draggable gray" draggable="true">
+					Do homework
+				</div>
+				<div id="drag-item-2" class="example-draggable orange" draggable="true">
+					Grab some food at the supermarket
+				</div>
+				<div id="drag-item-3" class="example-draggable yellow" draggable="true">
+					Clean up the working desk
+				</div>
+				<div id="drag-item-4" class="example-draggable green" draggable="true">
+					Feed the dogs
+				</div>
+			</div>
+		</div>
+
+		<br><br>
+		<h2>Example 3 - Move element</h2>
+		<div class="example-parent ex4 advanced">
+			<div class="example-origin">
+				To-do
+				<div class="wrapper" data-index="1">
+					<div id="drag-item-1" draggable="true" class="example-draggable gray">Do homework</div>
+				</div>
+				<div class="wrapper" data-index="2">
+					<div id="drag-item-2" draggable="true" class="example-draggable orange">Grab some food at the supermarket
+					</div>
+				</div>
+				<div class="wrapper" data-index="3">
+					<div id="drag-item-3" draggable="true" class="example-draggable yellow">Clean up the working desk</div>
+				</div>
+				<div class="wrapper" data-index="4">
+					<div id="drag-item-4" draggable="true" class="example-draggable green">Feed the dogs</div>
+				</div>
+			</div>
+		</div>
+		<br><br><br>
+		<p class="footer">
+			Copyright 2020 - Made by Leo Huynh at:
+			<a href="https://leohuynh.dev" target="_blank">https://leohuynh.dev</a>,
+			<a href="https://twitter.com/hta218_" target="_blank">@twitter/hta218_</a>,
+			<a href="https://github.com/hta218" target="_blank">@github/hta218</a>
+		</p>
+		<br>
 	</div>
-	<br><br><br>
-	<p class="footer">
-		Copyright 2020 - Made by Leo Huynh at:
-		<a href="https://leohuynh.dev" target="_blank">https://leohuynh.dev</a>,
-		<a href="https://twitter.com/hta218_" target="_blank">@twitter/hta218_</a>,
-		<a href="https://github.com/hta218" target="_blank">@github/hta218</a>
-	</p>
-	<br>
 	<script src="./mdn-docs.js"></script>
 	<script src="./dnd-swap.js"></script>
 	<script src="./dnd-move.js"></script>
