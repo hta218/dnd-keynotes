@@ -10,11 +10,13 @@ window.addEventListener('load', function () {
 			dragEl = e.target.cloneNode(true)
 			const wrapperIndex = e.target.parentNode.dataset.index
 			console.log('Dnd 2 - Drag start', wrapperIndex)
+			e.dataTransfer.effectAllowed = 'move';
 			e.dataTransfer.setData('text/plain', wrapperIndex)
 			e.dataTransfer.effectAllowed = 'move'
 		})
 
 		item.parentNode.addEventListener('dragenter', function (e) {
+			e.preventDefault()
 			console.log('Dnd 2 - Drag enter', this)
 			this.classList.add('over')
 
@@ -25,13 +27,21 @@ window.addEventListener('load', function () {
 				const from = currIndex > wrapperIndex ? wrapperIndex : currIndex
 				const to = currIndex > wrapperIndex ? currIndex : wrapperIndex
 				const wrappers = document.querySelectorAll('.wrapper')
+				// debugger
 				for (let i = from; i < to; i++) {
 					const wrapper = wrappers[i]
 					const next = wrappers[i + 1]
+					console.log('Dnd 2 - Drag enter', next, i)
 					wrapper.firstElementChild.remove()
-					wrapper.appendChild(next.firstElementChild)
+					// wrapper.appendChild(next.firstElementChild)
 				}
 			}
+		})
+
+		item.parentNode.addEventListener('dragover', function (e) {
+			console.log('Dnd 2 - dragover')
+			e.preventDefault()
+			e.dropEffect = "move"
 		})
 
 		item.parentNode.addEventListener('dragleave', function(e) {
