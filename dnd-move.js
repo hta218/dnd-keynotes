@@ -31,9 +31,11 @@ window.addEventListener('load', function () {
 				for (let i = from; i < to; i++) {
 					const wrapper = wrappers[i]
 					const next = wrappers[i + 1]
+					const nextChild = next.firstElementChild.cloneNode(true)
 					console.log('Dnd 2 - Drag enter', next, i)
 					wrapper.firstElementChild.remove()
-					// wrapper.appendChild(next.firstElementChild)
+					wrapper.appendChild(nextChild)
+					next.firstElementChild.remove()
 				}
 			}
 		})
