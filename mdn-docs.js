@@ -32,7 +32,7 @@ window.addEventListener('load', function () {
 	function handleDrop(e) {
 		// Use `e.dataTransfer.getData` method to retrieve drag's data and process them
 		// NOTE: there must be a handler for dragover to use drop event
-		// NOTE: Keep mind that we can oly use the `dataTransfer.getData()` in the `drop-handler`
+		// NOTE: Keep mind that we can only use the `dataTransfer.getData()` in the `drop-handler`
 		// `getData()` will return empty string inside handle dragover or dragenter
 		console.log('Drop!')
 		e.preventDefault()
