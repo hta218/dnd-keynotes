@@ -20,6 +20,10 @@ window.addEventListener('load', function () {
 			elems.push(wrappers[count])
 			count += step
 		}
+
+		elems.push(wrappers[to])
+
+		return elems
 	}
 
 	window.__dragTracker = dragTracker
@@ -42,20 +46,30 @@ window.addEventListener('load', function () {
 			const currIndex = Number(this.dataset.index)
 			const wrapperIndex = Number(dragTracker.wrapperIndex)
 			if (currIndex !== wrapperIndex) {
-				const from = currIndex > wrapperIndex ? wrapperIndex : currIndex
-				const to = currIndex > wrapperIndex ? currIndex : wrapperIndex
-				console.log('before for loop =====>', from, to)
-				for (let i = from; i < to; i++) {
-					const wrp = wrappers[i]
-					const next = wrappers[i + 1]
+				const dragoverWrappers = getDragoverElements(wrapperIndex, currIndex)
+				console.log('before for loop =====>', dragoverWrappers)
+				dragoverWrappers.forEach((wrp, i) => {
+					const next = dragoverWrappers[i + 1]
 					if (next.firstElementChild) {
 						if (wrp.firstElementChild) {
 							wrp.firstElementChild.remove()
 						}
 						wrp.appendChild(next.firstElementChild)
 					}
-				}
+				})
 				dragTracker.wrapperIndex = currIndex
+
+				// for (let i = from; i < to; i++) {
+				// 	const wrp = wrappers[i]
+				// 	const next = wrappers[i + 1]
+				// 	if (next.firstElementChild) {
+				// 		if (wrp.firstElementChild) {
+				// 			wrp.firstElementChild.remove()
+				// 		}
+				// 		wrp.appendChild(next.firstElementChild)
+				// 	}
+				// }
+				// dragTracker.wrapperIndex = currIndex
 			}
 		})
 
