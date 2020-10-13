@@ -5,6 +5,13 @@ window.addEventListener('load', function () {
 		dragEl: null,
 		wrapperIndex: -1
 	}
+
+	function cleanUp() {
+		dragTracker.dragEl = null
+		dragTracker.wrapperIndex = -1
+	}
+
+	window.__dragTracker = dragTracker
 	const placeholder = document.createElement('div')
 	placeholder.classList.add('placeholder')
 	const dragItems = document.querySelectorAll('.ex4 .example-draggable')
@@ -22,13 +29,13 @@ window.addEventListener('load', function () {
 
 			const currIndex = Number(this.dataset.index)
 			const wrapperIndex = Number(dragTracker.wrapperIndex)
-
+			// debugger
 			if (currIndex !== wrapperIndex) {
 				// this.firstElementChild.classList.add('hide')
 				const from = currIndex > wrapperIndex ? wrapperIndex : currIndex
 				const to = currIndex > wrapperIndex ? currIndex : wrapperIndex
 				// debugger
-				console.log('before for loop =====', from, to)
+				console.log('before for loop =====>', from, to)
 				for (let i = from; i < to; i++) {
 					const wrp = wrappers[i]
 					const next = wrappers[i + 1]
@@ -45,6 +52,8 @@ window.addEventListener('load', function () {
 					}
 				}
 				// console.log('after for loop =====')
+				dragTracker.wrapperIndex = currIndex
+				console.log('============>', dragTracker.wrapperIndex)
 			}
 		})
 
@@ -70,7 +79,7 @@ window.addEventListener('load', function () {
 
 	function addItemDndEvents(item) {
 		item.addEventListener('dragstart', function (e) {
-			dragTracker.dragEl = this.cloneNode(true)
+			dragTracker.dragEl = addItemDndEvents(this.cloneNode(true))
 			this.classList.add('moving')
 
 			const wrapperIndex = this.parentNode.dataset.index
@@ -86,5 +95,7 @@ window.addEventListener('load', function () {
 			const dropEffect = e.dataTransfer.dropEffect
 			console.log('Dnd 2 - dragend', this, dropEffect)
 		})
+
+		return item
 	}
 })
