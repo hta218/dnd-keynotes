@@ -16,6 +16,9 @@ window.addEventListener('load', function () {
 	function addWrapperDndEvents(wrapper) {
 		wrapper.addEventListener('dragenter', function (e) {
 			console.log('Dnd 2 - Drag enter', this.dataset.index)
+			if (!this.firstElementChild) {
+				return
+			}
 
 			const currIndex = Number(this.dataset.index)
 			const wrapperIndex = Number(dragTracker.wrapperIndex)
@@ -61,14 +64,14 @@ window.addEventListener('load', function () {
 			console.log('Dnd 2 - drop', this.dataset.index)
 			e.preventDefault()
 			// this.firstElementChild.remove()
-			// this.appendChild(dragTracker.dragEl)
+			this.appendChild(dragTracker.dragEl)
 		})
 	}
 
 	function addItemDndEvents(item) {
 		item.addEventListener('dragstart', function (e) {
-			this.classList.add('moving')
 			dragTracker.dragEl = this.cloneNode(true)
+			this.classList.add('moving')
 
 			const wrapperIndex = this.parentNode.dataset.index
 			e.dataTransfer.effectAllowed = 'move';
@@ -81,7 +84,7 @@ window.addEventListener('load', function () {
 
 		item.addEventListener('dragend', function(e) {
 			const dropEffect = e.dataTransfer.dropEffect
-			console.log('Dnd 2 - dragend', this.parentNode.dataset.index, dropEffect)
+			console.log('Dnd 2 - dragend', this, dropEffect)
 		})
 	}
 })
