@@ -11,6 +11,17 @@ window.addEventListener('load', function () {
 		dragTracker.wrapperIndex = -1
 	}
 
+	function getDragoverElements(from, to) {
+		const elems = []
+		const step = to > from ? 1 : -1
+
+		let count = from
+		while(count !== to) {
+			elems.push(wrappers[count])
+			count += step
+		}
+	}
+
 	window.__dragTracker = dragTracker
 
 	const placeholder = document.createElement('div')
