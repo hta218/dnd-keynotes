@@ -16,7 +16,7 @@ window.addEventListener('load', function () {
 		const step = to > from ? 1 : -1
 
 		let count = from
-		while(count !== to) {
+		while (count !== to) {
 			elems.push(wrappers[count])
 			count += step
 		}
@@ -49,27 +49,17 @@ window.addEventListener('load', function () {
 				const dragoverWrappers = getDragoverElements(wrapperIndex, currIndex)
 				console.log('before for loop =====>', dragoverWrappers)
 				dragoverWrappers.forEach((wrp, i) => {
-					const next = dragoverWrappers[i + 1]
-					if (next.firstElementChild) {
-						if (wrp.firstElementChild) {
-							wrp.firstElementChild.remove()
+					if (i !== dragoverWrappers.length - 1) {
+						const next = dragoverWrappers[i + 1]
+						if (next.firstElementChild) {
+							if (wrp.firstElementChild) {
+								wrp.firstElementChild.remove()
+							}
+							wrp.appendChild(next.firstElementChild)
 						}
-						wrp.appendChild(next.firstElementChild)
 					}
 				})
 				dragTracker.wrapperIndex = currIndex
-
-				// for (let i = from; i < to; i++) {
-				// 	const wrp = wrappers[i]
-				// 	const next = wrappers[i + 1]
-				// 	if (next.firstElementChild) {
-				// 		if (wrp.firstElementChild) {
-				// 			wrp.firstElementChild.remove()
-				// 		}
-				// 		wrp.appendChild(next.firstElementChild)
-				// 	}
-				// }
-				// dragTracker.wrapperIndex = currIndex
 			}
 		})
 
@@ -79,12 +69,12 @@ window.addEventListener('load', function () {
 			e.dropEffect = "move"
 		})
 
-		wrapper.addEventListener('dragleave', function(e) {
+		wrapper.addEventListener('dragleave', function (e) {
 			console.log('Dnd 2 - dragleave', this.dataset.index)
 			e.preventDefault()
 		})
 
-		wrapper.addEventListener('drop', function(e) {
+		wrapper.addEventListener('drop', function (e) {
 			console.log('Dnd 2 - drop', this.dataset.index)
 			e.preventDefault()
 			this.appendChild(dragTracker.dragEl)
@@ -106,7 +96,7 @@ window.addEventListener('load', function () {
 			console.log('Dnd 2 - Drag start', wrapperIndex)
 		})
 
-		item.addEventListener('dragend', function(e) {
+		item.addEventListener('dragend', function (e) {
 			const dropEffect = e.dataTransfer.dropEffect
 			console.log('Dnd 2 - dragend', this, dropEffect)
 		})
