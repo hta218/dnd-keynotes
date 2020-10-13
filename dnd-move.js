@@ -19,7 +19,7 @@ window.addEventListener('load', function () {
 			const wrapperIndex = Number(dragTracker.wrapperIndex)
 
 			if (currIndex !== wrapperIndex) {
-				// this.firstElementChild.classList.add('hide')
+				this.firstElementChild.classList.add('hide')
 				const from = currIndex > wrapperIndex ? wrapperIndex : currIndex
 				const to = currIndex > wrapperIndex ? currIndex : wrapperIndex
 
@@ -31,6 +31,7 @@ window.addEventListener('load', function () {
 					// nextChild.classList.remove('hide')
 					// console.log('Dnd 2 - Drag enter', next, i)
 					// wrapper.firstElementChild.classList.add('hide')
+					console.log('====>', next.firstElementChild)
 					wrapper.appendChild(next.firstElementChild)
 				}
 				// console.log('after for loop =====')
@@ -69,6 +70,11 @@ window.addEventListener('load', function () {
 			dragTracker.wrapperIndex = wrapperIndex
 
 			console.log('Dnd 2 - Drag start', wrapperIndex)
+		})
+
+		item.addEventListener('dragend', function(e) {
+			const dropEffect = e.dataTransfer.dropEffect
+			console.log('Dnd 2 - dragend', this.parentNode.dataset.index, dropEffect)
 		})
 	}
 })

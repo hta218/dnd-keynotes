@@ -41,7 +41,7 @@
 }
 
 .example-draggable.hide {
-	display: none;
+	visibility: hidden;
 }
 
 .example-draggable.dragging {
