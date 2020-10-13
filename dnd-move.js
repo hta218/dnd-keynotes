@@ -12,6 +12,7 @@ window.addEventListener('load', function () {
 	}
 
 	window.__dragTracker = dragTracker
+
 	const placeholder = document.createElement('div')
 	placeholder.classList.add('placeholder')
 	const dragItems = document.querySelectorAll('.ex4 .example-draggable')
@@ -29,31 +30,21 @@ window.addEventListener('load', function () {
 
 			const currIndex = Number(this.dataset.index)
 			const wrapperIndex = Number(dragTracker.wrapperIndex)
-			// debugger
 			if (currIndex !== wrapperIndex) {
-				// this.firstElementChild.classList.add('hide')
 				const from = currIndex > wrapperIndex ? wrapperIndex : currIndex
 				const to = currIndex > wrapperIndex ? currIndex : wrapperIndex
-				// debugger
 				console.log('before for loop =====>', from, to)
 				for (let i = from; i < to; i++) {
 					const wrp = wrappers[i]
 					const next = wrappers[i + 1]
-					// const nextChild = next.firstElementChild.cloneNode(true)
-					// nextChild.classList.remove('hide')
-					// console.log('Dnd 2 - Drag enter', next, i)
-					// debugger
 					if (next.firstElementChild) {
 						if (wrp.firstElementChild) {
 							wrp.firstElementChild.remove()
 						}
-						console.log('====>', next.firstElementChild)
 						wrp.appendChild(next.firstElementChild)
 					}
 				}
-				// console.log('after for loop =====')
 				dragTracker.wrapperIndex = currIndex
-				console.log('============>', dragTracker.wrapperIndex)
 			}
 		})
 
@@ -66,14 +57,13 @@ window.addEventListener('load', function () {
 		wrapper.addEventListener('dragleave', function(e) {
 			console.log('Dnd 2 - dragleave', this.dataset.index)
 			e.preventDefault()
-			// this.classList.remove('over')
 		})
 
 		wrapper.addEventListener('drop', function(e) {
 			console.log('Dnd 2 - drop', this.dataset.index)
 			e.preventDefault()
-			// this.firstElementChild.remove()
 			this.appendChild(dragTracker.dragEl)
+			cleanUp()
 		})
 	}
 
