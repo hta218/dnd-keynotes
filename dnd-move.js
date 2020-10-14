@@ -26,10 +26,6 @@ window.addEventListener('load', function () {
 		return elems
 	}
 
-	window.__dragTracker = dragTracker
-
-	const placeholder = document.createElement('div')
-	placeholder.classList.add('placeholder')
 	const dragItems = document.querySelectorAll('.ex4 .example-draggable')
 	const wrappers = document.querySelectorAll('.wrapper')
 
@@ -47,7 +43,6 @@ window.addEventListener('load', function () {
 			const wrapperIndex = Number(dragTracker.wrapperIndex)
 			if (currIndex !== wrapperIndex) {
 				const dragoverWrappers = getDragoverElements(wrapperIndex, currIndex)
-				console.log('before for loop =====>', dragoverWrappers)
 				dragoverWrappers.forEach((wrp, i) => {
 					if (i !== dragoverWrappers.length - 1) {
 						const next = dragoverWrappers[i + 1]
@@ -89,8 +84,6 @@ window.addEventListener('load', function () {
 
 			const wrapperIndex = this.parentNode.dataset.index
 			e.dataTransfer.effectAllowed = 'move';
-			e.dataTransfer.setData('text/plain', wrapperIndex)
-
 			dragTracker.wrapperIndex = wrapperIndex
 
 			console.log('Dnd 2 - Drag start', wrapperIndex)
