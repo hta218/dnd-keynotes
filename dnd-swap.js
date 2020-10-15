@@ -7,12 +7,10 @@ window.addEventListener('load', function () {
 
 	document.body.addEventListener('dragover', function(e) {
 		e.preventDefault()
-		console.log('Document dragover')
 	})
 	document.body.addEventListener('drop', function(e) {
-		console.log('Document drop')
-		if (!dragEnd) {
-			const dragElemId = e.dataTransfer.getData('text/plain')
+		const dragElemId = e.dataTransfer.getData('text/plain')
+		if (!dragEnd && dragElemId) {
 			document.getElementById(dragElemId).classList.remove('dragstart')
 			dragEnd = true
 		}
