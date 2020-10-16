@@ -3,12 +3,14 @@ console.log('DnD ex3 script loaded!!')
 window.addEventListener('load', function () {
 	const dragTracker = {
 		dragEl: null,
-		wrapperIndex: -1
+		wrapperIndex: -1,
+		dragEnd: false
 	}
 
 	function cleanUp() {
 		dragTracker.dragEl = null
 		dragTracker.wrapperIndex = -1
+		dragTracker.dragEnd = true
 	}
 
 	function getDragoverElements(from, to) {
@@ -79,6 +81,7 @@ window.addEventListener('load', function () {
 			const wrapperIndex = this.parentNode.dataset.index
 			e.dataTransfer.effectAllowed = 'move';
 			dragTracker.wrapperIndex = wrapperIndex
+			dragTracker.dragEnd = false
 
 			console.log('Dnd 2 - Drag start', wrapperIndex)
 		})
@@ -86,6 +89,12 @@ window.addEventListener('load', function () {
 		item.addEventListener('dragend', function (e) {
 			const dropEffect = e.dataTransfer.dropEffect
 			console.log('Dnd 2 - dragend', dropEffect)
+			if (!dragTracker.dragEnd) {
+				document
+					.querySelector(`.wrapper[data-index="${dragTracker.wrapperIndex}"]`)
+					.firstElementChild.classList.remove('moving')
+				cleanUp()
+			}
 		})
 
 		return item
