@@ -36,6 +36,7 @@ window.addEventListener('load', function () {
 
 	function addWrapperDndEvents(wrapper) {
 		wrapper.addEventListener('dragenter', function (e) {
+			this.classList.add("grabbing")
 			console.log('Dnd 2 - Drag enter', this.dataset.index)
 			const currIndex = Number(this.dataset.index)
 			const wrapperIndex = Number(dragTracker.wrapperIndex)
@@ -62,13 +63,18 @@ window.addEventListener('load', function () {
 
 		wrapper.addEventListener('dragleave', function (e) {
 			console.log('Dnd 2 - dragleave', this.dataset.index)
+			this.classList.remove("grabbing")
 			e.preventDefault()
 		})
 
 		wrapper.addEventListener('drop', function (e) {
 			console.log('Dnd 2 - drop', this.dataset.index)
 			e.preventDefault()
+			if (this.firstElementChild) {
+				this.firstElementChild.remove()
+			}
 			this.appendChild(dragTracker.dragEl)
+			this.classList.remove("grabbing")
 			cleanUp()
 		})
 	}
