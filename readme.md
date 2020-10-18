@@ -1,4 +1,4 @@
-## Javascript Drag and Drop events keynotes
+## Javascript Drag and Drop API keynotes
 
 Events include:
 
