@@ -11,6 +11,9 @@ window.addEventListener('load', function () {
 		dragTracker.dragEl = null
 		dragTracker.wrapperIndex = -1
 		dragTracker.dragEnd = true
+		document
+			.querySelectorAll('.example-draggable.grabbing')
+			.forEach(el => el.classList.remove('grabbing'))
 	}
 
 	function getDragoverElements(from, to) {
@@ -36,7 +39,7 @@ window.addEventListener('load', function () {
 
 	function addWrapperDndEvents(wrapper) {
 		wrapper.addEventListener('dragenter', function (e) {
-			this.classList.add("grabbing")
+
 			console.log('Dnd 2 - Drag enter', this.dataset.index)
 			const currIndex = Number(this.dataset.index)
 			const wrapperIndex = Number(dragTracker.wrapperIndex)
@@ -48,6 +51,7 @@ window.addEventListener('load', function () {
 						if (wrp.firstElementChild) {
 							wrp.firstElementChild.remove()
 						}
+						next.firstElementChild.classList.add('grabbing')
 						wrp.appendChild(next.firstElementChild)
 					}
 				})
@@ -63,7 +67,6 @@ window.addEventListener('load', function () {
 
 		wrapper.addEventListener('dragleave', function (e) {
 			console.log('Dnd 2 - dragleave', this.dataset.index)
-			this.classList.remove("grabbing")
 			e.preventDefault()
 		})
 
@@ -74,7 +77,6 @@ window.addEventListener('load', function () {
 				this.firstElementChild.remove()
 			}
 			this.appendChild(dragTracker.dragEl)
-			this.classList.remove("grabbing")
 			cleanUp()
 		})
 	}

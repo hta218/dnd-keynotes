@@ -31,16 +31,13 @@
 }
 
 .example-draggable {
-	/* cursor: pointer; */
+	cursor: pointer;
 }
 
 .example-draggable.hide {
 	visibility: hidden;
 }
 
-.example-draggable.dragging {
-	cursor: grabbing;
-}
 .example-draggable.dragstart {
 	cursor: grabbing;
 	opacity: 0.6;
