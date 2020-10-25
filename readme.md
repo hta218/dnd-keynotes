@@ -61,13 +61,13 @@ Event | Fires when…
 
     1. **move**: dragged data will be moved to the dropzone.
     2. **copy** dragged data will be copied to the dropzone.
-    3. ...
+    3. ..
 
 - The **dropzone**
 
-  - To make an element becomes a dropzone the element **must** have both **dragover** and **drop** event handler.
+  - To make an element becomes a dropzone, it **must** have both **dragover** and **drop** event handler.
 
-  - Remember to call **e.preventDefault()** or the browser or it will not let you drop anything inside
+  - Remember to call **e.preventDefault()** in `dragover` handler or the browser won't let you drop anything inside
 
   ```js
   dropzone.addEventListener('dragover', function handleDragOver(e) {
@@ -103,4 +103,12 @@ Event | Fires when…
 
   - If the drag operation failed, the value of `e.dataTransfer.dropEffect` will be "none"
 
-Tutorial from [DigitalOcean](https://www.digitalocean.com/community/tutorials/js-drag-and-drop-vanilla-js#step-2-%E2%80%94-handling-drag-and-drop-events-with-javascript) and [Javascript.info](https://javascript.info/mouse-drag-and-drop)
+## References
+
+- [DigitalOcean](https://www.digitalocean.com/community/tutorials/
+
+- [MDN Documentations](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API)
+
+- [https://web.dev/drag-and-drop/](https://web.dev/drag-and-drop/)
+
+- [https://html.spec.whatwg.org/multipage/dnd.html#dnd](https://html.spec.whatwg.org/multipage/dnd.html#dnd)
