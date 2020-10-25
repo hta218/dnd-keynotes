@@ -1,5 +1,9 @@
 # 💅 Javascript Drag and Drop API keynotes
 
+I learned drag-and-drop APIs and created an example at [https://hta218.github.io/dnd-keynotes](https://hta218.github.io/dnd-keynotes)
+
+Here are some of my notes about this.
+
 ## Basic concepts
 
 - A typical **drag** operation begins when a user selects a **draggable** element, drags the element to a **droppable** element, and then releases the dragged element.
@@ -16,6 +20,8 @@ Event | Fires when…
 [dragover](https://developer.mozilla.org/en-US/docs/Web/API/Document/dragover_event) | …a dragged item is being dragged over a valid drop target, every few hundred milliseconds.
 [dragstart](https://developer.mozilla.org/en-US/docs/Web/API/Document/dragstart_event) | …the user starts dragging an item.
 [drop](https://developer.mozilla.org/en-US/docs/Web/API/Document/drop_event) | …an item is dropped on a valid drop target.
+
+## Keynotes
 
 
 - `drag`
