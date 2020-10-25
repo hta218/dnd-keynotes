@@ -1,4 +1,4 @@
-# 💅 Javascript Drag and Drop API keynotes
+# 💅 Drag and Drop API keynotes
 
 I learned drag-and-drop APIs and created an example at [https://hta218.github.io/dnd-keynotes](https://hta218.github.io/dnd-keynotes)
 
@@ -6,7 +6,7 @@ Here are some of my notes about that.
 
 ## Basic concepts
 
-- A typical **drag** operation begins when a user selects a **draggable** element, drags the element to a **droppable** element, and then releases the dragged element.
+- A typical **drag** operation begins when a user selects a **draggable** element, drags the element to a **dropzone**, and then releases the dragged element.
 
 - Events:
 
@@ -23,20 +23,20 @@ Event | Fires when…
 
 ## Keynotes
 
-- To make an element draggable, add `draggable="true"` attribute
+- To make an element **draggable**, add `draggable="true"` attribute
   ```html
   <div draggable="true">This element is draggable</div>
   ```
 
 - **dragstart**
-  - `dragstart` is the first event fired when a drag operation triggered on a draggable element
+  - `dragstart` is the first event fired when a **drag operation** starts on a draggable element
 
-  - use `e.dataTransfer.setData()` method to set any drag's data, this will stay during the drag operation
+  - use `e.dataTransfer.setData()` method to set any drag's data, this will stay during the **drag operation**
 
   ```js
   // The `dragstart` event fires on the `draggable` element
   dragElem.addEventListener('dragstart', function(e) {
-		// We can set data using `e.dataTransfer.setData` method
+    // We can set data using `e.dataTransfer.setData` method
     e.dataTransfer.setData('text/plain', e.target.id)
     // Use e.dataTransfer.setDragImage() to change the drag image
     // e.dataTransfer.setDragImage(img | element, xOffset, yOffset)
@@ -101,11 +101,11 @@ Event | Fires when…
 	})
   ```
 
-  - If the drag operation failed, the value of `e.dataTransfer.dropEffect` will be "none"
+  - If the drag operation failed, the value of `e.dataTransfer.dropEffect` will be `"none"`
 
 ## References
 
-- [DigitalOcean](https://www.digitalocean.com/community/tutorials/
+- [DigitalOcean](https://www.digitalocean.com/community/tutorials/)
 
 - [MDN Documentations](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API)
 
