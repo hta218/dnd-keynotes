@@ -2,7 +2,7 @@
 
 I learned drag-and-drop APIs and created an example at [https://hta218.github.io/dnd-keynotes](https://hta218.github.io/dnd-keynotes)
 
-Here are some of my notes about this.
+Here are some of my notes about that.
 
 ## Basic concepts
 
@@ -85,5 +85,22 @@ Event | Fires when…
 		// `getData()` will return empty string inside handle dragover or dragenter
 	})
   ```
+
+  - Keep mind that we can **only** use the `dataTransfer.getData()` in the `drop-handler` (it will return empty string inside **dragover** or **dragenter** handler)
+
+- **dragend**
+
+  - The **dragend** event fires after a drag operation finished regardless of whether the drag completed or was canceled
+
+  ```js
+  // The `dragend` event fired on the `draggable` element (not the dropzone element)
+  dragElem.addEventListener('dragend', function handleDragEnd(e) {
+		// We can check if the drag was successful or not by checking the ʻe.dataTransfer.dropEffect` value
+		const dropEffect = e.dataTransfer.dropEffect
+		// If that fails, the value of `e.dataTransfer.dropEffect` will be "none"
+	})
+  ```
+
+  - If the drag operation failed, the value of `e.dataTransfer.dropEffect` will be "none"
 
 Tutorial from [DigitalOcean](https://www.digitalocean.com/community/tutorials/js-drag-and-drop-vanilla-js#step-2-%E2%80%94-handling-drag-and-drop-events-with-javascript) and [Javascript.info](https://javascript.info/mouse-drag-and-drop)

@@ -14,7 +14,7 @@ window.addEventListener('load', function () {
 
 	function handleDragEnd(e) {
 		// The `dragend` event fired on the `draggable` element
-		// We can check wether the drag operation succeeded or not by check the `e.dataTransfer.dropEffect`
+		// We can check whether the drag operation succeeded or not by check the `e.dataTransfer.dropEffect`
 		// If it's not succeeded the value of `e.dataTransfer.dropEffect` will be "none"
 		const dropEffect = e.dataTransfer.dropEffect
 		e.target.classList.remove('dragging')
