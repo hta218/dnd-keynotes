@@ -112,3 +112,7 @@ Event | Fires when…
 - [https://web.dev/drag-and-drop/](https://web.dev/drag-and-drop/)
 
 - [https://html.spec.whatwg.org/multipage/dnd.html#dnd](https://html.spec.whatwg.org/multipage/dnd.html#dnd)
+
+--- 
+
+Copyright (c) Leo Huynh @ https://leohuynh.dev
