@@ -7,7 +7,7 @@ window.addEventListener('load', function () {
 		// We can set data using `e.dataTransfer.setData` method
 		e.dataTransfer.setData('text/plain', e.target.id)
 		// The `move` value work on window not on macOS - It might be the problem of browser with OS
-		e.dataTransfer.effectAllowed = "move"
+		// e.dataTransfer.effectAllowed = "move"
 		e.dataTransfer.dropEffect = "move"
 		e.target.classList.add('dragging')
 	}
